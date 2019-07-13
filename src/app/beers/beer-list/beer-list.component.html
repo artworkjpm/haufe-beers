@@ -1,10 +1,8 @@
-<div class="beer"
-     *ngFor="let beer of (beers$ | async)">
-  <h4>
-    {{beer.name}}john
-  </h4>
+<!DOCTYPE html>
+<div class="beer" *ngfor="let beer of beers$ | async">
+  <h4>{{ beer.name }}john</h4>
   <p>
-    {{beer.tagline}}
+    {{ beer.tagline }}
   </p>
-  <img src="{{beer.image_url}}">
+  <img src="{{ beer.image_url }}" />
 </div>
