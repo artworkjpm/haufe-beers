@@ -1,3 +1,15 @@
-<p>
-  test
-</p>
+<div class="beer" *ngFor="let beer of beers$ | async; let i = index">
+  <div *ngIf="i === id" class="row">
+    <div class="column center"><img src="{{ beer.image_url }}" width="200" /></div>
+    <div class="column">
+      <h4>{{ beer.name }}</h4>
+      <p>{{ beer.description }}</p>
+      <p>{{ beer.first_brewed }}</p>
+      <p>Foods that pair with {{ beer.name }}:</p>
+    </div>
+
+    <!-- - Foods that pair with that beer
+- Abv and Ibu
+- Contributor/s -->
+  </div>
+</div>
