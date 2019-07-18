@@ -1,14 +1,18 @@
 .row {
   display: flex;
-  width: 500px;
+  width: 600px;
   margin: 0 auto;
 }
 
 .column {
-  flex: 50%;
-  padding: 10px;
+  padding: 10px 20px 10px 10px;
+  img {
+    max-height: 500px;
+  }
 }
-
+.smaller {
+  font-size: 0.5em;
+}
 @media (max-width: 400px) {
   .row {
     display: block;
@@ -17,4 +21,15 @@
       text-align: center;
     }
   }
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font-size: 2em;
+  /*border is optional*/
+  border-bottom: 1px solid #444;
+  cursor: pointer;
 }

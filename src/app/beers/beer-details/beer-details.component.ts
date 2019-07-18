@@ -5,6 +5,7 @@ import { DrinksState } from "../store";
 import { Observable } from "rxjs/index";
 import { getBeersSelector } from "../store/beers.selectors";
 import { fetchBeersListRequest } from "../store/beers.actions";
+import { Location } from "@angular/common";
 
 @Component({
   selector: "app-beer-details",
@@ -14,8 +15,9 @@ import { fetchBeersListRequest } from "../store/beers.actions";
 export class BeerDetailsComponent implements OnInit {
   public beers$: Observable<any>;
   id: number;
+  twitter: string;
 
-  constructor(private store: Store<DrinksState>, private route: ActivatedRoute) {}
+  constructor(private store: Store<DrinksState>, private route: ActivatedRoute, private location: Location) {}
 
   ngOnInit() {
     this.store.dispatch(fetchBeersListRequest());
@@ -27,5 +29,9 @@ export class BeerDetailsComponent implements OnInit {
     this.id = +this.route.snapshot.paramMap.get("id");
     this.id = this.id - 1;
     console.log("id: " + this.id);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

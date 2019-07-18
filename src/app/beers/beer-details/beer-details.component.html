@@ -1,15 +1,32 @@
+<button (click)="goBack()">&#8249; go back</button>
+
 <div class="beer" *ngFor="let beer of beers$ | async; let i = index">
   <div *ngIf="i === id" class="row">
-    <div class="column center"><img src="{{ beer.image_url }}" width="200" /></div>
+    <div class="column center"><img src="{{ beer.image_url }}" /></div>
     <div class="column">
-      <h4>{{ beer.name }}</h4>
+      <h1>
+        {{ beer.name }}
+      </h1>
+      <p>
+        <b>*ABV: {{ beer.abv }} - *IBU: {{ beer.ibu }}</b>
+      </p>
       <p>{{ beer.description }}</p>
-      <p>{{ beer.first_brewed }}</p>
-      <p>Foods that pair with {{ beer.name }}:</p>
+      <p><b>First brewed:</b> {{ beer.first_brewed }}</p>
+      <p>
+        <b>Foods that pair with {{ beer.name }}:</b>
+      </p>
+      <ul>
+        <li *ngFor="let food of beer.food_pairing">{{ food }}</li>
+      </ul>
+      <p><b>Contributed by:</b> {{ beer.contributed_by.split("<")[0] }}</p>
+      <p>
+        <b
+          >Twitter: <a href="https://twitter.com/{{ beer.contributed_by.split('<')[1].split('>')[0] }}" target="_blank">{{ beer.contributed_by.split("<")[1].split(">")[0] }}</a></b
+        >
+      </p>
+      <p><b>Original Gravity:</b>{{ beer.target_og }}</p>
+      <p><b>Final Gravity: </b>{{ beer.target_fg }}</p>
+      <p><b>Gravity difference: </b>{{ beer.target_og - beer.target_fg | number: "1.0-2" }}</p>
     </div>
-
-    <!-- - Foods that pair with that beer
-- Abv and Ibu
-- Contributor/s -->
   </div>
 </div>
