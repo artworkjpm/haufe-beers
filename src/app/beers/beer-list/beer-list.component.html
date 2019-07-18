@@ -1,10 +1,12 @@
 <div class="beer" *ngFor="let beer of beers$ | async">
-  <h4>{{ beer.name }}john</h4>
+  <h4>{{ beer.name }}</h4>
   <p>
     {{ beer.tagline }}
   </p>
   <img
     src="{{ beer.image_url }}"
-    (click)="router.navigate(['/beer-details'])"
+    routerLink="/beer-details/{{beer.id}}"
+   
   />
+ 
 </div>
