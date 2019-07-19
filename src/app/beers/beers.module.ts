@@ -10,11 +10,15 @@ import { EffectsModule } from "@ngrx/effects";
 import { BeersEffects } from "./store/beers.effects";
 import { BeersService } from "./beers.service";
 import { BeerDetailsComponent } from "./beer-details/beer-details.component";
+import { FormsModule } from "@angular/forms";
+
+// search module
+import { Ng2SearchPipeModule } from "ng2-search-filter";
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
+    HttpClientModule,FormsModule, Ng2SearchPipeModule,
     RouterModule.forChild(BeersRouting),
     StoreModule.forFeature("drinks", beersReducers),
     EffectsModule.forFeature([BeersEffects])

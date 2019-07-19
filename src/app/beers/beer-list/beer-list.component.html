@@ -1,17 +1,12 @@
-
 <div class="search">
-    <input type="text" placeholder="search by name of the beer"  />
-  </div>
+  <input type="text" placeholder="search by name of the beer"
+   [(ngModel)]="searchText" />
+</div>
 
-<div class="beer" *ngFor="let beer of beers$ | async">
+<div class="beer" *ngFor="let beer of beers$ | filter: searchText | async">
   <h4>{{ beer.name }}</h4>
   <p>
     {{ beer.tagline }}
   </p>
-  <img
-    src="{{ beer.image_url }}"
-    routerLink="/beer-details/{{beer.id}}"
-   
-  />
- 
+  <img src="{{ beer.image_url }}" routerLink="/beer-details/{{ beer.id }}" />
 </div>
