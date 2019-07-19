@@ -1,11 +1,12 @@
-<div class="md-form">
-  <input type="search" placeholder="Search text" />
-</div>
-
-<div class="beer" *ngFor="let beer of beers$ | filter: searchText">
+<div class="beer" *ngFor="let beer of beers$ | async">
   <h4>{{ beer.name }}</h4>
   <p>
     {{ beer.tagline }}
   </p>
-  <img src="{{ beer.image_url }}" routerLink="/beer-details/{{ beer.id }}" />
+  <img
+    src="{{ beer.image_url }}"
+    routerLink="/beer-details/{{beer.id}}"
+   
+  />
+ 
 </div>

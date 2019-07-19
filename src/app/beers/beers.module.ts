@@ -10,7 +10,6 @@ import { EffectsModule } from "@ngrx/effects";
 import { BeersEffects } from "./store/beers.effects";
 import { BeersService } from "./beers.service";
 import { BeerDetailsComponent } from "./beer-details/beer-details.component";
-import { FilterPipe } from './beer-list/filter.pipe';
 
 @NgModule({
   imports: [
@@ -20,7 +19,7 @@ import { FilterPipe } from './beer-list/filter.pipe';
     StoreModule.forFeature("drinks", beersReducers),
     EffectsModule.forFeature([BeersEffects])
   ],
-  declarations: [BeerListComponent, BeerDetailsComponent, FilterPipe],
+  declarations: [BeerListComponent, BeerDetailsComponent],
   providers: [BeersService]
 })
 export class BeersModule {}
