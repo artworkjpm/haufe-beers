@@ -1,4 +1,6 @@
-<button (click)="goBack()">&#8249; go back</button>
+<div class="row">
+  <div class="column"><button class="nostylebtn" (click)="goBack()">&#8249; go back</button></div>
+</div>
 
 <div class="beer" *ngFor="let beer of beers$ | async; let i = index">
   <div *ngIf="i === id" class="row">
@@ -26,7 +28,9 @@
       </p>
       <p><b>Original Gravity:</b>{{ beer.target_og }}</p>
       <p><b>Final Gravity: </b>{{ beer.target_fg }}</p>
-      <p><b>Gravity difference: </b>{{ beer.target_og - beer.target_fg | number: "1.0-2" }}</p>
+
+      <button class="btn" (click)="toggle()">See Gravity Difference</button>
+      <p *ngIf="show"><b>Gravity difference decrease: </b>{{ gravityPercent | number: "1.0-2" }}%</p>
     </div>
   </div>
 </div>
