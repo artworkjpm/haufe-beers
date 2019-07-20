@@ -13,7 +13,6 @@ import { fetchBeersListRequest } from "../store/beers.actions";
 })
 export class BeerListComponent implements OnInit {
   public beers$: Observable<any>;
-  searchText;
 
   constructor(private store: Store<DrinksState>, private router: Router) {}
 

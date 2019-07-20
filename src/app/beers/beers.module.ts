@@ -11,19 +11,20 @@ import { BeersEffects } from "./store/beers.effects";
 import { BeersService } from "./beers.service";
 import { BeerDetailsComponent } from "./beer-details/beer-details.component";
 import { FormsModule } from "@angular/forms";
+import { FilterlistPipe } from './filterlist.pipe';
 
 // search module
-import { Ng2SearchPipeModule } from "ng2-search-filter";
+//import { Ng2SearchPipeModule } from "ng2-search-filter";
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,FormsModule, Ng2SearchPipeModule,
+    HttpClientModule,FormsModule,
     RouterModule.forChild(BeersRouting),
     StoreModule.forFeature("drinks", beersReducers),
     EffectsModule.forFeature([BeersEffects])
   ],
-  declarations: [BeerListComponent, BeerDetailsComponent],
+  declarations: [BeerListComponent, BeerDetailsComponent, FilterlistPipe],
   providers: [BeersService]
 })
 export class BeersModule {}

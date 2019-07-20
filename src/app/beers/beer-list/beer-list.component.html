@@ -1,9 +1,9 @@
 <div class="search">
-  <input type="text" placeholder="search by name of the beer"
-   [(ngModel)]="searchText" />
+  <input type="text" placeholder="Search by name"
+   [(ngModel)]="beername"/>
 </div>
 
-<div class="beer" *ngFor="let beer of beers$ | filter: searchText | async">
+<div class="beer" *ngFor="let beer of beers$ | async | filterlist:beername">
   <h4>{{ beer.name }}</h4>
   <p>
     {{ beer.tagline }}
