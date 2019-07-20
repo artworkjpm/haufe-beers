@@ -5,7 +5,14 @@
 
 <modal *ngIf="modalOpen" (onClose)="toggleModal()"></modal>
 
-<div class="beer" *ngFor="let beer of beers$ | async | filterlist: beername">
+<div
+  class="beer"
+  *ngFor="let beer of beersArray | filterlist: beername"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()"
+>
   <h4>{{ beer.name }}</h4>
   <p>
     {{ beer.tagline }}
