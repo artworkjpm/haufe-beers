@@ -1,9 +1,11 @@
 <div class="search">
-  <input type="text" placeholder="Search by name"
-   [(ngModel)]="beername"/>
+  <input type="text" placeholder="Search by name" [(ngModel)]="beername" />
+  <button class="btn" (click)="toggleModal()">Message from John Moran</button>
 </div>
 
-<div class="beer" *ngFor="let beer of beers$ | async | filterlist:beername">
+<modal *ngIf="modalOpen" (onClose)="toggleModal()"></modal>
+
+<div class="beer" *ngFor="let beer of beers$ | async | filterlist: beername">
   <h4>{{ beer.name }}</h4>
   <p>
     {{ beer.tagline }}

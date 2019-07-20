@@ -13,12 +13,17 @@ import { fetchBeersListRequest } from "../store/beers.actions";
 })
 export class BeerListComponent implements OnInit {
   public beers$: Observable<any>;
+  modalOpen = false;
 
   constructor(private store: Store<DrinksState>, private router: Router) {}
 
   ngOnInit() {
     this.store.dispatch(fetchBeersListRequest());
     this.beers$ = this.store.pipe(select(getBeersSelector));
+  }
+
+  toggleModal() {
+    this.modalOpen = !this.modalOpen;
   }
 
  

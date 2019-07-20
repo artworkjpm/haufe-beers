@@ -11,6 +11,7 @@ import { BeersEffects } from "./store/beers.effects";
 import { BeersService } from "./beers.service";
 import { BeerDetailsComponent } from "./beer-details/beer-details.component";
 import { FormsModule } from "@angular/forms";
+import { ModalComponent } from './modal-john/modal.component'
 import { FilterlistPipe } from './filterlist.pipe';
 
 // search module
@@ -24,7 +25,7 @@ import { FilterlistPipe } from './filterlist.pipe';
     StoreModule.forFeature("drinks", beersReducers),
     EffectsModule.forFeature([BeersEffects])
   ],
-  declarations: [BeerListComponent, BeerDetailsComponent, FilterlistPipe],
+  declarations: [BeerListComponent, BeerDetailsComponent, FilterlistPipe, ModalComponent],
   providers: [BeersService]
 })
 export class BeersModule {}
