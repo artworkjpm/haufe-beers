@@ -13,6 +13,7 @@ import { BeerDetailsComponent } from "./beer-details/beer-details.component";
 import { FormsModule } from "@angular/forms";
 import { ModalComponent } from './modal-john/modal.component'
 import { FilterlistPipe } from './filterlist.pipe';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 // search module
 //import { Ng2SearchPipeModule } from "ng2-search-filter";
@@ -21,7 +22,7 @@ import { FilterlistPipe } from './filterlist.pipe';
   imports: [
     CommonModule,
     HttpClientModule,FormsModule,
-    RouterModule.forChild(BeersRouting),
+    RouterModule.forChild(BeersRouting), InfiniteScrollModule,
     StoreModule.forFeature("drinks", beersReducers),
     EffectsModule.forFeature([BeersEffects])
   ],

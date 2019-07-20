@@ -4,11 +4,19 @@
 </div>
 
 <modal *ngIf="modalOpen" (onClose)="toggleModal()"></modal>
-
+<div
+infinite-scroll
+      [infiniteScrollDistance]="scrollDistance"
+      [infiniteScrollUpDistance]="scrollUpDistance"
+      [infiniteScrollThrottle]="throttle"
+      (scrolled)="onScrollDown()"
+      (scrolledUp)="onUp()">
 <div class="beer" *ngFor="let beer of beers$ | async | filterlist: beername">
   <h4>{{ beer.name }}</h4>
   <p>
     {{ beer.tagline }}
   </p>
   <img src="{{ beer.image_url }}" routerLink="/beer-details/{{ beer.id }}" />
+</div>
+
 </div>
