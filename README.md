@@ -21,4 +21,4 @@ The data of this project is fetch on public api [Punk API](https://punkapi.com/d
 ng build --prod --output-path docs --base-href /haufe-beers/
 When the build is complete, make a copy of docs/index.html and name it docs/404.html.
 Commit your changes and push.
-https://artworkjpm.github.io/haufe-beers/beers
+https://artworkjpm.github.io/haufe-beers/
