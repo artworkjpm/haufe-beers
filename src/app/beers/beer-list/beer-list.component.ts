@@ -23,23 +23,11 @@ export class BeerListComponent implements OnInit {
     this.store.dispatch(fetchBeersListRequest());
     this.beers$ = this.store.pipe(select(getBeersSelector));
     this.beers$.subscribe(response => {
-      this.originalBeers = response;
-      this.beersArray = response.slice(0, 20);
+      this.beersArray = response;
     });
   }
 
   toggleModal() {
     this.modalOpen = !this.modalOpen;
-  }
-
-  onScrollDown() {
-    console.log("scrolled down!");
-    if (this.beersArray.length < this.originalBeers.length) {
-      let len = this.beersArray.length;
-
-      for (let i = len; i <= len + 20; i++) {
-        this.beersArray.push(this.originalBeers[i]);
-      }
-    }
   }
 }

@@ -7,11 +7,11 @@
 
 <div
   class="beer"
-  *ngFor="let beer of beersArray | filterlist: beername"
-  infiniteScroll
-  [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="50"
-  (scrolled)="onScrollDown()"
+  *ngFor="
+    let beer of beersArray
+      | filterlist: beername
+      | paginate: { itemsPerPage: 4, currentPage: p }
+  "
 >
   <h4>{{ beer.name }}</h4>
   <p>
@@ -19,3 +19,4 @@
   </p>
   <img src="{{ beer.image_url }}" routerLink="/beer-details/{{ beer.id }}" />
 </div>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

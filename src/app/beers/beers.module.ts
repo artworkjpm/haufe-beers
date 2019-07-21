@@ -11,9 +11,9 @@ import { BeersEffects } from "./store/beers.effects";
 import { BeersService } from "./beers.service";
 import { BeerDetailsComponent } from "./beer-details/beer-details.component";
 import { FormsModule } from "@angular/forms";
-import { ModalComponent } from './modal-john/modal.component'
-import { FilterlistPipe } from './filterlist.pipe';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ModalComponent } from "./modal-john/modal.component";
+import { FilterlistPipe } from "./filterlist.pipe";
+import { NgxPaginationModule } from "ngx-pagination";
 
 // search module
 //import { Ng2SearchPipeModule } from "ng2-search-filter";
@@ -21,12 +21,19 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,FormsModule,
-    RouterModule.forChild(BeersRouting), InfiniteScrollModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forChild(BeersRouting),
+    NgxPaginationModule,
     StoreModule.forFeature("drinks", beersReducers),
     EffectsModule.forFeature([BeersEffects])
   ],
-  declarations: [BeerListComponent, BeerDetailsComponent, FilterlistPipe, ModalComponent],
+  declarations: [
+    BeerListComponent,
+    BeerDetailsComponent,
+    FilterlistPipe,
+    ModalComponent
+  ],
   providers: [BeersService]
 })
 export class BeersModule {}
