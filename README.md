@@ -18,6 +18,7 @@ The data of this project is fetch on public api [Punk API](https://punkapi.com/d
 
 ## deployed jm
 
-npm install -g angular-cli-ghpages
-ng build --prod --base-href "https://artworkjpm.github.io/haufe-beers/"
-ngh
+ng build --prod --output-path docs --base-href /haufe-beers/
+When the build is complete, make a copy of docs/index.html and name it docs/404.html.
+Commit your changes and push.
+https://artworkjpm.github.io/haufe-beers/beers
