@@ -18,4 +18,6 @@ The data of this project is fetch on public api [Punk API](https://punkapi.com/d
 
 ## deployed jm
 
-angular-cli-ghpages
+npm install -g angular-cli-ghpages
+ng build --prod --base-href "https://artworkjpm.github.io/haufe-beers/"
+ngh

@@ -15,9 +15,6 @@ import { ModalComponent } from "./modal-john/modal.component";
 import { FilterlistPipe } from "./filterlist.pipe";
 import { NgxPaginationModule } from "ngx-pagination";
 
-// search module
-//import { Ng2SearchPipeModule } from "ng2-search-filter";
-
 @NgModule({
   imports: [
     CommonModule,

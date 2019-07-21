@@ -16,6 +16,8 @@ export class BeerListComponent implements OnInit {
   modalOpen = false;
   originalBeers = [];
   beersArray = [];
+  beername;
+  p;
 
   constructor(private store: Store<DrinksState>, private router: Router) {}
 
